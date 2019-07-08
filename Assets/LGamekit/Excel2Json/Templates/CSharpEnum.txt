@@ -1,0 +1,14 @@
+﻿// {{.Enum}}.cs
+// This script is created by Excel2CSharp, please do not modify it.
+
+namespace LGamekit.Excel2Json
+{
+
+
+
+public enum {{.Enum}} {
+
+{{.Fields}}
+
+}
+}
