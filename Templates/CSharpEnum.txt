@@ -1,0 +1,12 @@
+﻿// {{.Enum}}.cs
+// This script is created by Unity-Excel2CSharp-Tool, please do not modify it.
+
+namespace UnityExcel2JsonTool {
+
+	public enum {{.Enum}} {
+
+{{.Fields}}
+
+	}
+
+}

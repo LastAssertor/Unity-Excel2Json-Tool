@@ -1,0 +1,65 @@
+﻿// CSharpDataExporter.cs
+// This script is created by Unity-Excel2CSharp-Tool, please do not modify it.
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using System;
+using System.IO;
+using System.Text;
+
+namespace UnityExcel2JsonTool {
+
+    public static class CSharpDataExporter {
+
+        [@MenuItem("Assets/Unity-Excel2Json-Tool/2-2.导出数据", false, {{.MenuItemOrder}})]
+        public static void Export() {
+
+            var guids = AssetDatabase.FindAssets("t:UnityExcel2JsonTool.Settings");
+            if (guids.Length == 0) {
+                Debug.LogWarning("Not found 'UnityExcel2JsonTool.Settings' asset.");
+                return;
+            }
+
+            var settings = AssetDatabase.LoadAssetAtPath<Settings>(AssetDatabase.GUIDToAssetPath(guids[0]));
+
+            if (string.IsNullOrEmpty(settings.exportWorkbookFolder)) {
+                Debug.LogWarning("UnityExcel2JsonTool.Settings.exportWorkbookFolder can not be empty.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(settings.exportScriptDataFolder)) {
+                Debug.LogWarning("UnityExcel2JsonTool.Settings.exportScriptDataFolder can not be empty.");
+                return;
+            }
+
+            var workbooks = WorkbookSerializer.LoadWorkbooks(settings.exportWorkbookFolder);
+            if (workbooks.Count == 0) {
+                return;
+            }
+
+            var outputDir = settings.exportScriptDataFolder;
+            outputDir.CreateDirectory();
+
+            string path;
+            string json;
+
+            Func<string, Sheet> getSheet = (string className) => {
+                foreach(var workbook in workbooks) {
+                    if(workbook.Value.TryGetSheet(className, out Sheet result)) {
+                        return result;
+                    }
+                }
+                return null;
+            };
+
+{{.WriteJsons}}
+
+            AssetDatabase.Refresh();
+            Debug.Log("Export datas successed!");
+        }
+
+    }
+
+}

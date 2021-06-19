@@ -1,0 +1,21 @@
+﻿// {{.Class}}.cs
+// This script is created by Unity-Excel2CSharp-Tool, please do not modify it.
+
+using System.Collections;
+using System.Collections.Generic;
+using System;
+
+namespace UnityExcel2JsonTool {
+
+    [Serializable]
+    public class {{.Class}} {
+
+        public int id;
+        
+{{.Fields}}
+
+{{.Methods}}
+
+    }
+
+}

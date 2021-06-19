@@ -1,0 +1,25 @@
+﻿// {{.Class}}Data.cs
+// This script is created by Unity-Excel2CSharp-Tool, please do not modify it.
+
+using System.Collections;
+using System.Collections.Generic;
+using System;
+
+namespace UnityExcel2JsonTool {
+
+    [Serializable]
+    public class {{.Class}}Data {
+    
+        public List<{{.Class}}> Data = new List<{{.Class}}>();
+
+        public {{.Class}} GetData(int id) {
+        	foreach (var data in Data) {
+    			if (data.id == id) {
+    				return data;
+    			}
+        	}
+            return null;
+        }
+    }
+
+}

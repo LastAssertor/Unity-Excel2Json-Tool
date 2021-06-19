@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773fe7650d55b4699b3d9e30f283b5e2, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  excelFolder: Assets/Unity-Excel2Json-Tool/Example/Excels
+  exportWorkbookFolder: Assets/Unity-Excel2Json-Tool/Generated/Workbooks
+  exportScriptFolder: Assets/Unity-Excel2Json-Tool/Generated/Scripts
+  exportScriptDataFolder: Assets/Unity-Excel2Json-Tool/Generated/Data
+  exportLocalizationDataFolder: Assets/Unity-Excel2Json-Tool/Generated/Resources/Languages
+  enumSheetType: enum
+  classSheetType: class
+  enumTemplate: {fileID: 4900000, guid: 729cce5fd5e644ef58633af05d5e27f9, type: 3}
+  classTemplate: {fileID: 4900000, guid: e652b2f8452be47958ef6e8164734ab7, type: 3}
+  classDataTemplate: {fileID: 4900000, guid: 998de32db9018446480a477b22a5543f, type: 3}
+  dataSerializerTemplate: {fileID: 4900000, guid: 61eaccfd535154f71b431018df533119,
+    type: 3}
+  dataExporterTemplate: {fileID: 4900000, guid: 9748aef9cfa7c464a84b57eb9d001909,
+    type: 3}
+  headersFileName: Headers
+  enumTag: '{{.Enum}}'
+  classTag: '{{.Class}}'
+  fieldsTag: '{{.Fields}}'
+  methodsTag: '{{.Methods}}'
+  readFieldsTag: '{{.ReadFields}}'
+  menuItemOrderTag: '{{.MenuItemOrder}}'
+  writeJsonsTag: '{{.WriteJsons}}'
+  menuItemOrder: 5002
+  localizationWorkbookFileName: Localization
+  localizationKeyTag: keys

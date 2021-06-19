@@ -1,0 +1,37 @@
+﻿// {{.Class}}.cs
+// This script is created by Unity-Excel2CSharp-Tool, please do not modify it.
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using System;
+using System.IO;
+using System.Text;
+
+namespace UnityExcel2JsonTool {
+
+    public static class {{.Class}}DataSerializer {
+
+    	public static {{.Class}}Data Parse(Sheet sheet) {
+
+            {{.Class}}Data _{{.Class}}Data = new {{.Class}}Data();
+            int row = 4;
+            int rowLen = sheet.GetRowSize();
+            for (; row < rowLen; row++) {
+                {{.Class}} _{{.Class}} = new {{.Class}}();
+                if(!int.TryParse(sheet.GetValue(row, 0), out _{{.Class}}.id)) {
+                    continue;
+                }
+
+{{.ReadFields}}
+
+                _{{.Class}}Data.Data.Add(_{{.Class}});
+            }
+
+            return _{{.Class}}Data;
+        }
+
+    }
+
+}
